@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        canvas {
+            max-width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taking Action</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slide0.html">Introduction</a></li>
+            <li><a href="slide1.html">What is Climate Change?</a></li>
+            <li><a href="slide2.html">CO₂ Emissions Trend</a></li>
+            <li><a href="slide3.html">Global Temperatures Rise</a></li>
+            <li><a href="slide4.html">Environmental Impacts</a></li>
+            <li><a href="slide5.html">Human Impact</a></li>
+            <li><a href="slide6.html" class="active">Taking Action</a></li>
+            <li><a href="slide7.html">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Chapter 6: Taking Action: A Collective Responsibility</h2>
+            <p>Reducing CO₂ emissions through the adoption of renewable energy sources, reducing fossil fuel use, and promoting sustainable practices are key to combating climate change. Each individual's effort contributes to a larger goal of achieving a sustainable future.</p>
+            <p>The transition to renewable energy sources not only helps in reducing greenhouse gas emissions but also creates economic opportunities, promotes energy security, and enhances public health. As we shift from fossil fuels to solar, wind, and hydroelectric power, we must also engage in sustainable practices such as energy conservation, waste reduction, and reforestation.</p>
+            <p>Implementing policies that support clean energy initiatives is crucial for governments worldwide. Investments in renewable technologies, combined with incentives for businesses and individuals to adopt greener practices, will pave the way for significant reductions in emissions.</p>
+            <p>Data from various studies indicates that if global CO₂ emissions are reduced significantly, we can prevent the most severe impacts of climate change. For example, achieving net-zero emissions by 2050 could stabilize global temperatures and preserve ecosystems, ultimately benefiting humanity.</p>
+        </section>
+        
+        <section>
+            <h3>Projected Contributions of Renewable Energy Sources</h3>
+            <canvas id="myChart"></canvas>
+        </section>
+        
+        <section>
+            <h3>Further Impacts of Taking Action</h3>
+            <p>By reducing emissions, we can improve air quality, leading to fewer health problems related to pollution. Additionally, promoting renewable energy sources will create jobs in the green economy, contributing to a more resilient economic framework.</p>
+            <p>Furthermore, global cooperation and participation in climate agreements, such as the Paris Agreement, play a pivotal role in ensuring that nations work together towards a common goal of sustainability and climate resilience.</p>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2010', '2015', '2020', '2025', '2030', '2035', '2040'],
+                datasets: [
+                    {
+                        label: 'Solar Energy',
+                        data: [5, 10, 25, 40, 55, 70, 90],
+                        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1,
+                        fill: true
+                    },
+                    {
+                        label: 'Wind Energy',
+                        data: [20, 25, 30, 40, 55, 70, 90],
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        fill: true
+                    },
+                    {
+                        label: 'Hydroelectric Power',
+                        data: [30, 35, 40, 45, 50, 55, 60],
+                        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1,
+                        fill: true
+                    },
+                    {
+                        label: 'Geothermal Energy',
+                        data: [2, 4, 6, 8, 10, 12, 15],
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1,
+                        fill: true
+                    },
+                    {
+                        label: 'Biomass Energy',
+                        data: [5, 8, 10, 12, 15, 18, 20],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1,
+                        fill: true
+                    },
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Energy Contribution (GW)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Projected Contributions of Renewable Energy Sources'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

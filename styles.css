@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
+    margin: 0;
+    padding: 0;
+    background-image: url('earth.png'); /* Set background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    color: #e0e0e0; /* Light text color for better contrast */
+    line-height: 1.5; /* Adjust line height for better readability */
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for header */
+    color: #ffffff; /* White text for header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 71.25vh; /* Adjusted height for shorter space */
+    padding: 20px; /* Optional: add padding for better appearance */
+}
+
+header h1 {
+    font-size: 2em; /* Increased title size for emphasis */
+    margin: 0; /* Remove margin */
+    line-height: 1.2; /* Reduce line height for tighter spacing */
+}
+
+header p {
+    font-size: 1em; /* Subtitle size */
+    margin-top: 5px; /* Add margin for space between title and subtitle */
+    color: #b0bec5; /* Light gray for subtitle */
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #1e1e1e; /* Darker nav background */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: space-between; /* Equal spacing between buttons */
+}
+
+nav ul li {
+    flex: 1; /* Make all buttons take equal space */
+    margin: 5px; /* Small margin between buttons */
+}
+
+nav ul li a {
+    display: flex; /* Make link a flex container */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    color: #ffffff; /* White text color */
+    text-decoration: none;
+    padding: 10px; /* Padding for buttons */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    height: 50px; /* Fixed height for uniform button size */
+    font-size: 0.58em; /* Smaller font size for button text */
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* Highlight active and hovered links */
+    background-color: #e76f51; /* Bright color for hover effect */
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px 5%;
+}
+
+main section {
+    margin-bottom: 50px;
+    background-color: #1f1f1f; /* Dark background for sections */
+    padding: 20px; /* Adjusted padding */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+main section img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px; /* Reduced margin */
+}
+
+h2 {
+    color: #2a9d8f; /* Color for section titles */
+    font-size: 1.5em; /* Larger font size for section titles */
+}
+
+p {
+    font-size: 0.85em; /* Smaller font size for paragraph text */
+    margin-bottom: 20px; /* Added space below paragraphs */
+    color: #e0e0e0; /* Light text color for paragraphs */
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #1e1e1e; /* Dark footer background */
+    color: #ffffff; /* White footer text */
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Vertical margin for stacked buttons */
+    }
+
+    header {
+        height: auto; /* Allow header to adjust height based on content */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Reduce title size on smaller screens */
+    }
+
+    header p {
+        font-size: 0.9em; /* Reduce subtitle size on smaller screens */
+    }
+
+    nav ul li a {
+        font-size: 0.7em; /* Smaller font size for buttons on smaller screens */
+    }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO₂ Emissions Trend</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        #chart-container {
+            max-width: 900px;
+            height: 400px; /* Adjust height */
+            margin: auto;
+            padding: 20px;
+            overflow: hidden; /* Ensure no overflow */
+        }
+        canvas {
+            width: 100%; /* Ensure the canvas takes full width */
+            height: 100%; /* Ensure the canvas takes the full height */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slide0.html">Introduction</a></li>
+            <li><a href="slide1.html">What is Climate Change?</a></li>
+            <li><a href="slide2.html" class="active">CO₂ Emissions Trend</a></li>
+            <li><a href="slide3.html">Global Temperatures Rise</a></li>
+            <li><a href="slide4.html">Environmental Impacts</a></li>
+            <li><a href="slide5.html">Human Impact</a></li>
+            <li><a href="slide6.html">Taking Action</a></li>
+            <li><a href="slide7.html">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Chapter 2: The Rise of CO₂ Emissions</h2>
+            <p>Over the last few centuries, human industrial activities have significantly increased the concentration of CO₂ in the atmosphere. CO₂ is a key greenhouse gas that traps heat in the Earth's atmosphere, contributing to the overall warming of the planet.</p>
+            <p>The burning of fossil fuels, deforestation, and various other human activities have led to a sharp rise in CO₂ levels. The graph below illustrates the exponential growth of CO₂ emissions over time, highlighting key historical moments.</p>
+            <div id="chart-container">
+                <canvas id="myChart"></canvas> <!-- Canvas for Chart.js -->
+            </div>
+            <p>The trend shows a worrying increase, particularly since the mid-20th century. In 1950, global CO₂ emissions were approximately 6.5 billion tons, and by 2020, that figure surged to around 38.2 billion tons. This dramatic rise is largely attributed to industrialization and increased energy consumption.</p>
+            <p>Addressing this trend is crucial for mitigating climate change. Strategies such as transitioning to renewable energy sources, enhancing energy efficiency, and implementing carbon capture technologies can help reduce emissions and combat global warming.</p>
+            <p>Furthermore, international agreements like the Paris Accord aim to limit global temperature rise by reducing greenhouse gas emissions. Individual actions, community initiatives, and governmental policies all play vital roles in tackling this global challenge.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>References: U.S. Greenhouse Gas Center, NASA Data</p>
+    </footer>
+
+    <script>
+        // CO₂ Emissions Data
+        const data = {
+            labels: ['1750', '1800', '1850', '1900', '1950', '2000', '2015', '2020'], // X-axis labels (Years)
+            datasets: [
+                {
+                    label: 'Global CO₂ Emissions (Billion Tons)',
+                    data: [0.1, 0.3, 0.5, 1.2, 6.5, 20.0, 35.6, 38.2], // CO2 emission values
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    fill: true,
+                    borderWidth: 2,
+                    tension: 0.4 // Curved lines
+                }
+            ]
+        };
+
+        // Chart configuration
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Allows the chart to resize properly
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year' // X-axis title
+                        }
+                    },
+                    y: {
+                        beginAtZero: false, // Adjust the scale for better fit
+                        title: {
+                            display: true,
+                            text: 'CO₂ Emissions (Billion Tons)' // Y-axis title
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Global CO₂ Emissions Trend Over Time' // Chart title
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        };
+
+        // Create the chart
+        const myChart = new Chart(document.getElementById('myChart'), config);
+    </script>
+</body>
+</html>

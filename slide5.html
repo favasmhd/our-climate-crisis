@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: #333;
+            color: white;
+            padding: 1rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        #chartContainer {
+            position: relative;
+            height: 400px; /* Fixed height for the chart container */
+            overflow: hidden; /* Prevent overflow */
+            margin: auto; /* Center the chart */
+            max-width: 900px; /* Max width for the chart */
+            padding-top: 20px; /* Space above the chart */
+        }
+        #bubbleChart {
+            position: absolute; /* Absolute positioning within the container */
+            width: 100%;
+            height: 100%; /* Fill the container */
+        }
+        main {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Impact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slide0.html">Introduction</a></li>
+            <li><a href="slide1.html">What is Climate Change?</a></li>
+            <li><a href="slide2.html">CO₂ Emissions Trend</a></li>
+            <li><a href="slide3.html">Global Temperatures Rise</a></li>
+            <li><a href="slide4.html">Environmental Impacts</a></li>
+            <li><a href="slide5.html" class="active">Human Impact</a></li>
+            <li><a href="slide6.html">Taking Action</a></li>
+            <li><a href="slide7.html">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Chapter 5: The Human Impact</h2>
+            <p>Climate change isn't just about environmental changes—it directly affects human life in several profound ways. Here's how global warming, rising CO₂ levels, and extreme weather patterns are impacting human health, food production, and safety.</p>
+            
+            <h3>1. Health Impacts from Extreme Heatwaves</h3>
+            <p>The rise in global temperatures has led to more frequent and severe heatwaves, causing an increase in heat-related illnesses and deaths. Vulnerable populations, especially the elderly and those in urban areas, are at greater risk.</p>
+
+            <h3>2. Agricultural Disruptions and Food Scarcity</h3>
+            <p>Climate change is leading to disruptions in agriculture by altering rainfall patterns, increasing the occurrence of droughts, and exacerbating soil degradation. These changes result in lower crop yields, which can lead to food scarcity and higher prices, particularly in regions dependent on agriculture.</p>
+
+            <h3>3. Increased Risk of Floods and Droughts</h3>
+            <p>Regions worldwide are facing heightened risks of floods and droughts due to shifting precipitation patterns. Floods can destroy homes and infrastructure, while droughts strain water resources, increase the risk of wildfires, and create challenges for both agriculture and water access.</p>
+            
+            <h3>Bubble Chart: Climate Change and Human Impact</h3>
+            <p>The chart below illustrates the relationship between CO₂ emissions, temperature rise, and human impact across different regions. The size of each bubble represents the severity of the impact in that particular area.</p>
+            <div id="chartContainer">
+                <canvas id="bubbleChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const bubbleData = {
+            datasets: [
+                {
+                    label: 'Health Risks from Heatwaves',
+                    data: [
+                        { x: 2.5, y: 3.5, r: 15 }, // Coordinates and bubble size for health risks
+                    ],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                },
+                {
+                    label: 'Food Scarcity from Agriculture',
+                    data: [
+                        { x: 3.0, y: 2.0, r: 20 }, // Coordinates and bubble size for agriculture impacts
+                    ],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                },
+                {
+                    label: 'Flood Risks',
+                    data: [
+                        { x: 4.0, y: 4.0, r: 25 }, // Coordinates and bubble size for flood risks
+                    ],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                },
+                {
+                    label: 'Drought Impact',
+                    data: [
+                        { x: 3.5, y: 3.0, r: 18 }, // Coordinates and bubble size for drought impacts
+                    ],
+                    backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                },
+                {
+                    label: 'Wildfire Risk',
+                    data: [
+                        { x: 4.5, y: 4.5, r: 22 }, // Coordinates and bubble size for wildfire risks
+                    ],
+                    backgroundColor: 'rgba(255, 159, 64, 0.6)',
+                },
+                {
+                    label: 'Economic Losses from Climate Change',
+                    data: [
+                        { x: 4.2, y: 3.8, r: 30 }, // Coordinates and bubble size for economic impacts
+                    ],
+                    backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                },
+                {
+                    label: 'Social Displacement',
+                    data: [
+                        { x: 4.8, y: 2.5, r: 27 }, // Coordinates and bubble size for social impacts
+                    ],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                },
+                {
+                    label: 'Water Scarcity',
+                    data: [
+                        { x: 3.7, y: 3.2, r: 20 }, // Coordinates and bubble size for water scarcity
+                    ],
+                    backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                },
+            ]
+        };
+
+        const bubbleChart = new Chart(document.getElementById('bubbleChart'), {
+            type: 'bubble',
+            data: bubbleData,
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Temperature Increase (°C)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'CO₂ Emissions (Billion Tons)'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Climate Change and Human Impact'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+    </script>
+</body>
+
+</html>

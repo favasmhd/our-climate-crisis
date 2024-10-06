@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4: The Environmental Toll</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #graphs {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .graph-container {
+            max-width: 45%; /* Set max width for graphs */
+            margin: 20px;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slide0.html">Introduction</a></li>
+            <li><a href="slide1.html">What is Climate Change?</a></li>
+            <li><a href="slide2.html">CO₂ Emissions Trend</a></li>
+            <li><a href="slide3.html">Global Temperatures Rise</a></li>
+            <li><a href="slide4.html" class="active">Environmental Impacts</a></li>
+            <li><a href="slide5.html">Human Impact</a></li>
+            <li><a href="slide6.html">Taking Action</a></li>
+            <li><a href="slide7.html">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Environmental Impacts</h2>
+            <p>The impacts of climate change are profound and far-reaching, affecting ecosystems, weather patterns, and human communities. As we delve into the data, we see clear evidence of how our planet is responding to rising temperatures and CO₂ emissions.</p>
+            <p>Here are some key environmental impacts:</p>
+            <ul>
+                <li>Melting ice caps: The polar regions are warming at an alarming rate, leading to the loss of sea ice.</li>
+                <li>Rising sea levels: As ice melts, global sea levels are projected to rise, threatening coastal communities.</li>
+                <li>More extreme weather events: Increased frequency and intensity of storms, droughts, and heatwaves are becoming the new normal.</li>
+            </ul>
+
+            <div id="graphs">
+                <div class="graph-container">
+                    <h3>Melting Ice Caps</h3>
+                    <canvas id="iceCapGraph"></canvas>
+                </div>
+                <div class="graph-container">
+                    <h3>Rising Sea Levels</h3>
+                    <canvas id="seaLevelGraph"></canvas>
+                </div>
+                <div class="graph-container">
+                    <h3>Extreme Weather Events</h3>
+                    <canvas id="weatherEventsGraph"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>References: IPCC, NASA, NOAA</p>
+    </footer>
+
+    <script>
+        // Ice Cap Melting Graph
+        const ctxIceCap = document.getElementById('iceCapGraph').getContext('2d');
+        const iceCapGraph = new Chart(ctxIceCap, {
+            type: 'line',
+            data: {
+                labels: ['2000', '2005', '2010', '2015', '2020'],
+                datasets: [{
+                    label: 'Ice Cap Area (million sq km)',
+                    data: [14.5, 13.8, 12.9, 11.7, 10.2],
+                    borderColor: 'blue',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: 'Year' }},
+                    y: { title: { display: true, text: 'Ice Cap Area (million sq km)' }}
+                },
+                plugins: { title: { display: true, text: 'Melting Ice Caps (2000-2020)' }}
+            }
+        });
+
+        // Rising Sea Levels Graph
+        const ctxSeaLevel = document.getElementById('seaLevelGraph').getContext('2d');
+        const seaLevelGraph = new Chart(ctxSeaLevel, {
+            type: 'line',
+            data: {
+                labels: ['2000', '2005', '2010', '2015', '2020'],
+                datasets: [{
+                    label: 'Sea Level (mm above pre-industrial levels)',
+                    data: [20, 30, 40, 50, 65],
+                    borderColor: 'green',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: 'Year' }},
+                    y: { title: { display: true, text: 'Sea Level Rise (mm)' }}
+                },
+                plugins: { title: { display: true, text: 'Rising Sea Levels (2000-2020)' }}
+            }
+        });
+
+        // Extreme Weather Events Graph
+        const ctxWeatherEvents = document.getElementById('weatherEventsGraph').getContext('2d');
+        const weatherEventsGraph = new Chart(ctxWeatherEvents, {
+            type: 'bar',
+            data: {
+                labels: ['2000', '2005', '2010', '2015', '2020'],
+                datasets: [{
+                    label: 'Extreme Weather Events (Count)',
+                    data: [90, 110, 130, 150, 200],
+                    backgroundColor: 'red'
+                }]
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: 'Year' }},
+                    y: { title: { display: true, text: 'Number of Events' }}
+                },
+                plugins: { title: { display: true, text: 'Increase in Extreme Weather Events (2000-2020)' }}
+            }
+        });
+    </script>
+
+</body>
+
+</html>

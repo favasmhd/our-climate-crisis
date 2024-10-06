@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Temperatures Rise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        img {
+            max-width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+        }
+        #chart-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slide0.html">Introduction</a></li>
+            <li><a href="slide1.html">What is Climate Change?</a></li>
+            <li><a href="slide2.html">CO₂ Emissions Trend</a></li>
+            <li><a href="slide3.html" class="active">Global Temperatures Rise</a></li>
+            <li><a href="slide4.html">Environmental Impacts</a></li>
+            <li><a href="slide5.html">Human Impact</a></li>
+            <li><a href="slide6.html">Taking Action</a></li>
+            <li><a href="slide7.html">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Global Temperatures are Rising</h2>
+            <p>The increase in greenhouse gases, especially CO₂, is causing a significant rise in global temperatures. The relationship between CO₂ levels and global temperatures is well-documented; as CO₂ emissions increase, so do global temperatures. This correlation is primarily due to the greenhouse effect, where greenhouse gases trap heat in the atmosphere, leading to warming.</p>
+            
+            <p>Historically, the Earth's average surface temperature has risen by approximately 1.2 degrees Celsius since the late 19th century, a change largely driven by increased levels of carbon dioxide and other greenhouse gases. The following graph illustrates this relationship:</p>
+            
+            <div id="chart-container">
+                <canvas id="temperatureChart"></canvas> <!-- Placeholder for the temperature and CO₂ graph -->
+            </div>
+            
+            <p>The chart shows the trend of global temperatures and CO₂ concentrations over the last century. The data indicates that as CO₂ levels have risen, so has the average global temperature, emphasizing the urgent need for action to mitigate climate change impacts.</p>
+            
+            <p>To combat this warming, global efforts are underway, including the transition to renewable energy sources, increasing energy efficiency, and promoting sustainable land-use practices. It's crucial to recognize that reducing CO₂ emissions can effectively slow down the rise in global temperatures and mitigate climate-related impacts.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>References: U.S. Greenhouse Gas Center, NASA Data</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('temperatureChart').getContext('2d');
+        const temperatureData = {
+            labels: ['1880', '1900', '1950', '2000', '2020'], // Example years
+            datasets: [
+                {
+                    label: 'Global Average Temperature (°C)',
+                    data: [0.0, 0.1, 0.5, 0.8, 1.2], // Example temperature data
+                    borderColor: 'red',
+                    fill: false,
+                    yAxisID: 'y',
+                },
+                {
+                    label: 'CO₂ Concentration (ppm)',
+                    data: [280, 300, 310, 370, 410], // Example CO₂ concentration data
+                    borderColor: 'blue',
+                    fill: false,
+                    yAxisID: 'y1',
+                }
+            ]
+        };
+
+        const temperatureChart = new Chart(ctx, {
+            type: 'line',
+            data: temperatureData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Temperature (°C)'
+                        }
+                    },
+                    y1: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'CO₂ Concentration (ppm)'
+                        },
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false // Only want the grid lines for one axis to show up
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Relationship Between Global Temperatures and CO₂ Concentration'
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
